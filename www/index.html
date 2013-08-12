@@ -173,8 +173,8 @@
                  // xfbml: true,
                   useCachedDialogs: false
               });
-              FB.Event.subscribe('auth.statusChange', handleStatusChange);
-              FB.getLoginStatus(handleStatusChange);
+              FB.Event.subscribe('auth.statusChange', handleStatusChange);  //handleStatusChange in main.js
+              FB.getLoginStatus(handleStatusChange);  //一般取得access tokens的方法
           });
     </script>
 

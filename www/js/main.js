@@ -176,10 +176,20 @@ $('body').click(function(e){
 // Handle status changes
 function handleStatusChange(response) {
   if (response.authResponse) {
+
+    //FB User ID
+      var u_fbid = response.authResponse.userID;
+    //FB accessToken
+      var access_token = response.authResponse.accessToken;  
+
+      
     console.log(response);
     window.location.hash = '#menu';
     updateUserInfo(response);
   } else {
+    login();
+
+
     console.log(response);
     window.location.hash = '#login';
   }

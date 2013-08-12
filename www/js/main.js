@@ -363,7 +363,7 @@ function getNearby() {
       'me/objects/place',
       'post',
       {
-        app_id: 115190258555800,
+        app_id: '149909718537834',
         type: "place",
         url: "http://samples.ogp.me/304328139642010",
         title: "Sample Place",
@@ -373,8 +373,9 @@ function getNearby() {
       },
       function(response) {
         // handle the response
-    }
-);
+      }
+    ); 
+    alert("aa");
   });
 }
 

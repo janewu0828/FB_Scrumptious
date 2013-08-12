@@ -85,6 +85,7 @@ $(function () {
           $('#places-list').on('click', 'li', function() {
             var selectionId = $(this).attr('data-name');
             console.log("Selected place " + selectionId);
+            alert("selectionId>"+selectionId);
 
             var selectionStatus = $(this).attr('data-icon');
             if (selectionStatus == "false") {
@@ -177,17 +178,17 @@ $('body').click(function(e){
 function handleStatusChange(response) {
   if (response.authResponse) {
 
-    //FB User ID
-      var u_fbid = response.authResponse.userID;
-    //FB accessToken
-      var access_token = response.authResponse.accessToken;  
+    // //FB User ID
+    //   var u_fbid = response.authResponse.userID;
+    // //FB accessToken
+    //   var access_token = response.authResponse.accessToken;  
 
-      
+
     console.log(response);
     window.location.hash = '#menu';
     updateUserInfo(response);
   } else {
-    login();
+    // login();
 
 
     console.log(response);

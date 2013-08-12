@@ -85,7 +85,7 @@ $(function () {
           $('#places-list').on('click', 'li', function() {
             var selectionId = $(this).attr('data-name');
             console.log("Selected place " + selectionId);
-            alert("selectionId>"+selectionId);
+            
 
             var selectionStatus = $(this).attr('data-icon');
             if (selectionStatus == "false") {
@@ -238,7 +238,7 @@ function handleGenericError(e) {
 }
 
 function handlePublishOGError(e) {
-	console.log("Error publishing ..."+JSON.stringify(e));
+	console.log("Error publishing ..."+JSON.stringify(e)); //將 JavaScript 值轉換成以 JavaScript 物件標記法
 	var errorCode = e.code;
 	console.log("Error code ..."+errorCode);
 	if (errorCode == "200") {
@@ -262,7 +262,7 @@ function reauthorizeForPublishPermissions() {
 	);
 }
 
-function publishOGAction(response) {
+function publishOGAction(response) {  //announce
 	var errorHandler = null;
 	// Handle if we came in via a reauth.
 	// Also avoid loops, set generic error
@@ -281,7 +281,7 @@ function publishOGAction(response) {
 	}
 	var friendIDArrays = [];
 	for (var friendId in selectedFriends) {
-		if (selectedFriends.hasOwnProperty(friendId)) {
+		if (selectedFriends.hasOwnProperty(friendId)) { //hasOwnProperty()Returns a boolean indicating whether the object has the specified property.
 			friendIDArrays.push(friendId);
 		}
 	}
@@ -296,8 +296,10 @@ function publishOGAction(response) {
     		console.log(response);
     		if (!response || response.error) {
     			errorHandler(response.error);
+          alert('Error occured');
     		} else {
     			handleOGSuccess(response);
+          alert('Post ID: ' + response.id);
     		}
     	}
 	);

@@ -350,15 +350,31 @@ function getNearby() {
     // Use graph API to search nearby places
     var path = '/search?type=place&q=restaurant&center=' + location.coords.latitude + ',' + location.coords.longitude + '&distance=1000&fields=id,name,picture';
     
-    FB.api(path, function(response) {
-    	if (!response || response.error) {
-    		console.log("Error fetching nearby place data.");
-    	} else {
-    		nearbyPlaces = response.data;
-    		console.log(nearbyPlaces);
-    		displayPlaces(nearbyPlaces);
-    	}
-    });
+    // FB.api(path, function(response) {
+    // 	if (!response || response.error) {
+    // 		console.log("Error fetching nearby place data.");
+    // 	} else {
+    // 		nearbyPlaces = response.data;
+    // 		console.log(nearbyPlaces);
+    // 		displayPlaces(nearbyPlaces);
+    // 	}
+    // });
+    FB.api(
+      'me/objects/place',
+      'post',
+      {
+        app_id: 115190258555800,
+        type: "place",
+        url: "http://samples.ogp.me/304328139642010",
+        title: "Sample Place",
+        image: "https://s-static.ak.fbcdn.net/images/devsite/attachment_blank.png",
+        location: "Sample Location: Longitude",
+        description: ""
+      },
+      function(response) {
+        // handle the response
+    }
+);
   });
 }
 
